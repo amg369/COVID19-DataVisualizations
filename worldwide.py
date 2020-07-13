@@ -3,8 +3,9 @@ import numpy as np
 
 def CreateLabels(data):
     for item in data:
-        height = item.get_height()
-        plt.text(item.get_x() + item.get_width() / 2., height*1.05, '%d' % int(height), ha='center', va='bottom')
+        height = str(item.get_height())
+        print(height)
+        plt.text(item.get_x() + item.get_width() / 2., float(height)*1.00, height, ha='center', va='bottom')
 
 
 # Top Ten Countries by Thousands of COVID Cases
