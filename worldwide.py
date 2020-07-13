@@ -1,6 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+def CreateLabels(data):
+    for item in data:
+        height = item.get_height()
+        plt.text(item.get_x() + item.get_width() / 2., height*1.05, '%d' % int(height), ha='center', va='bottom')
+
+
 # Top Ten Countries by Thousands of COVID Cases
 col_count = 1
 bar_width = .1
@@ -12,8 +18,9 @@ index = np.arange(col_count)
 
 b = 0
 for key in sorted(country):
-    plt.bar(index + b, country[key], bar_width, label=key, alpha=.6)
+    bars = plt.bar(index + b, country[key], bar_width, label=key, alpha=.6)
     b = b + .1
+    CreateLabels(bars)
 
 
 
