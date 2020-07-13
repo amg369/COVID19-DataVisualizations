@@ -1,6 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Top Ten Countries by Thousands of COVID Cases
+
+# Function to show case numbers as a label above each bar
 def CreateLabels(data):
     for item in data:
         height = str(item.get_height())
@@ -8,7 +11,6 @@ def CreateLabels(data):
         plt.text(item.get_x() + item.get_width() / 2., float(height)*1.00, height, ha='center', va='bottom')
 
 
-# Top Ten Countries by Thousands of COVID Cases
 col_count = 1
 bar_width = .1
 
@@ -17,6 +19,7 @@ country = {"USA": 3.304, "Brazil": 1.864, "India": .878, "Russia": .726, "Peru":
 
 index = np.arange(col_count)
 
+# Make the bars
 b = 0
 for key in sorted(country):
     bars = plt.bar(index + b, country[key], bar_width, label=key, alpha=.6)
@@ -24,7 +27,7 @@ for key in sorted(country):
     CreateLabels(bars)
 
 
-
+# Axis Labels and Legend
 plt.xticks([])
 plt.title("Worldwide COVID-19 Cases")
 plt.xlabel("Countries")
